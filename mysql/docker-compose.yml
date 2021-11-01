@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  mysql:
+    image: mysql
+    volumes:
+      - mysql:/var/lib/mysql
+      - logs:/var/log/mysql
+      - /etc:/etc
+  analizer:
+    image: log-analizer
+    volumes:
+      - logs:/var/log:ro
+volumes:
+  data:
+  logs:
